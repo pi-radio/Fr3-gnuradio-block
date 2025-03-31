@@ -15,7 +15,8 @@ class blk(gr.sync_block):
             in_sig=None,
             out_sig=None
         )
-        self.frequency = frequency
+        self.highlo = highlo
+        self.lowlo = lowlo
         self.rx1gain = rx1gain
         self.rx2gain = rx2gain
         self.tx1gain = tx1gain
@@ -27,10 +28,14 @@ class blk(gr.sync_block):
         self.ip_address = ip_address
         self.set_frequency(frequency) #set initial frequency
 
-    def set_frequency(self, frequency):
-        """Set the SDR frequency."""
-        self.frequency = frequency
-        url = f"http://{self.ip_address}:5111/high_lo?freq={self.frequency}"
+    def set_highlo(self, frequency):
+        """Set the high lo frequency."""
+        self.highlo = highlo
+        url = f"http://{self.ip_address}:5111/high_lo?freq={self.highlo}"
+    def set_low(self, frequency):
+        """Set the low lo frequency."""
+        self.lowlo = lowlo
+        url = f"http://{self.ip_address}:5111/low_lo?freq={self.lowlo}"
 
     def set_rx1gain(self, Rx1gain):
         """set RX 1 gain"""
