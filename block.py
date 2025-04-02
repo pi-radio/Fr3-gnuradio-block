@@ -17,8 +17,8 @@ class FR3(gr.sync_block):
         gr.sync_block.__init__(
             self,
             name='FR3',
-            in_sig=complex,
-            out_sig=complex
+            in_sig=,
+            out_sig=
         )
         self.highlo = freq
         self.lowlo = freq2
