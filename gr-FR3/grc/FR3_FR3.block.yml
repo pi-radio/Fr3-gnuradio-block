@@ -4,7 +4,7 @@ category: '[FR3]'
 
 templates:
   imports: from gnuradio import FR3
-  make: FR3.FR3(${freq}, ${freq2}, ${gain1}, ${gain2}, ${gain3}, ${gain4})
+  make: FR3.FR3(${freq}, ${freq2}, ${gain1}, ${gain2}, ${gain3}, ${gain4},${ip_address})
 
 #  Make one 'parameters' list entry for every parameter you want settable from the GUI.
 #     Keys include:
@@ -13,6 +13,10 @@ templates:
 #     * dtype (e.g. int, float, complex, byte, short, xxx_vector, ...)
 #     * default
 parameters:
+- id: ip_address
+  label: Ip address
+  dtype: string
+  default: 0.0.0.0
 - id: freq
   label: High lo freqency
   dtype: float
@@ -47,8 +51,5 @@ parameters:
 #      * dtype (e.g. int, float, complex, byte, short, xxx_vector, ...)
 #      * vlen (optional - data stream vector length. Default is 1)
 #      * optional (optional - set to 1 for optional inputs. Default is 0)
-
-
-
 
 file_format: 1
