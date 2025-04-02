@@ -17,8 +17,8 @@ class FR3(gr.sync_block):
         gr.sync_block.__init__(
             self,
             name='FR3',
-            in_sig=complex,
-            out_sig=complex
+            in_sig=None,
+            out_sig=None
         )
         self.highlo = freq
         self.lowlo = freq2
@@ -74,3 +74,5 @@ class FR3(gr.sync_block):
         response = urllib.request.urlopen(url)
         if response.status == 200:
             print(f"TX2 gain set to {self.gain4}")
+
+      
