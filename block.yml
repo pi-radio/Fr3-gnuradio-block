@@ -1,10 +1,10 @@
-id: FR3_FR3
+id: FR3
 label: FR3
 category: '[FR3]'
 
 templates:
   imports: from gnuradio import FR3
-  make: FR3.Fr3(${freq}, ${freq2}, ${gain1}, ${gain2}, ${gain3}, ${gain4})
+  make: FR3.FR3(${freq}, ${freq2}, ${gain1}, ${gain2}, ${gain3}, ${gain4})
 
 #  Make one 'parameters' list entry for every parameter you want settable from the GUI.
 #     Keys include:
@@ -57,7 +57,4 @@ outputs:
 - label: out0
   domain: stream
   dtype: complex
-‎
-
-
 file_format: 1
