@@ -41,20 +41,14 @@ class FR3(gr.sync_block):
         self.gain1 = gain1
         ur3 = f"http://{self.ip_address}:5111/gain?trx=rx&chan=0&v={self.gain1}"
         response = urllib.request.urlopen(ur3)
-        url3 = response.read().decode('utf-8')
-        print(url3)
         """Set RX 2 gain."""
         self.gain2 = gain2
         ur4 = f"http://{self.ip_address}:5111/gain?trx=rx&chan=1&v={self.gain2}"
         response = urllib.request.urlopen(ur4)
-        url4 = response.read().decode('utf-8')
-        print(url4)
         """Set TX 1 gain."""
         self.gain3 = gain3
         ur5 = f"http://{self.ip_address}:5111/gain?trx=tx&chan=0&v={self.gain3}"
         response = urllib.request.urlopen(ur5)
-        url5 = response.read().decode('utf-8')
-        print(url5)
         """Set TX 2 gain."""
         self.gain4 = gain4
         ur6 = f"http://{self.ip_address}:5111/gain?trx=tx&chan=1&v={self.gain4}"
