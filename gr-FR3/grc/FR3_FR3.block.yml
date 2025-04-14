@@ -1,55 +1,58 @@
 id: FR3
 label: FR3
-category: '[FR3]'
+category: '[Pi-Radio]'
 
 templates:
   imports: from gnuradio import FR3
-  make: FR3.FR3(${freq}, ${freq2}, ${gain1}, ${gain2}, ${gain3}, ${gain4},${ip_address})
+  make: FR3.FR3(${freq}, ${freq2}, ${gain1}, ${gain2}, ${gain3}, ${gain4}, ${ip_address})
+  callbacks:
+  - set_freq(${freq})
+  - set_freq2(${freq2})
+  - set_gain1(${gain1})
+  - set_gain2(${gain2})
+  - set_gain3(${gain3})
+  - set_gain4(${gain4})
 
-#  Make one 'parameters' list entry for every parameter you want settable from the GUI.
-#     Keys include:
-#     * id (makes the value accessible as keyname, e.g. in the make entry)
-#     * label (label shown in the GUI)
-#     * dtype (e.g. int, float, complex, byte, short, xxx_vector, ...)
-#     * default
+# Define parameters and their callbacks
 parameters:
 - id: ip_address
-  label: Ip address
+  label: IP Address
   dtype: string
-  default: 0.0.0.0
+  default: "0.0.0.0"
+
 - id: freq
-  label: High lo freqency
+  label: High LO Frequency
   dtype: float
-  default: 10000000000.0
+  default: 1000000000.0
+  setter: set_freq  
+
 - id: freq2
-  label: Low lo freqency
+  label: Low LO Frequency
   dtype: float
   default: 1600000000.0
+  setter: set_freq2  
+
 - id: gain1
   label: RX Gain 1
   dtype: float
   default: 30.0
+  setter: set_gain1  
 - id: gain2
-  label: RX gain 2
+  label: RX Gain 2
   dtype: float
   default: 30.0
+  setter: set_gain2  
+
 - id: gain3
   label: TX Gain 1
   dtype: float
   default: 30.0
+  setter: set_gain3  
+
 - id: gain4
   label: TX Gain 2
   dtype: float
   default: 30.0
-#  label: ...
-#  dtype: ...
-
-#  Make one 'inputs' list entry per input and one 'outputs' list entry per output.
-#  Keys include:
-#      * label (an identifier for the GUI)
-#      * domain (optional - stream or message. Default is stream)
-#      * dtype (e.g. int, float, complex, byte, short, xxx_vector, ...)
-#      * vlen (optional - data stream vector length. Default is 1)
-#      * optional (optional - set to 1 for optional inputs. Default is 0)
+  setter: set_gain4  
 
 file_format: 1
