@@ -48,6 +48,7 @@ class FR3(gr.sync_block):
         ur2 = f"http://{self.ip_address}:5111/low_lo?freq={freq}"
         response = urllib.request.urlopen(ur2)
         url2 = response.read().decode('utf-8')
+        print(url2)
     
     def set_gain1(self, gain):
         self._rx1gain = gain
