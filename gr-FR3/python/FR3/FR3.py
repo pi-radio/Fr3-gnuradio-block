@@ -20,38 +20,58 @@ class FR3(gr.sync_block):
             in_sig=None,
             out_sig=None
         )
-        self.highlo = freq
-        self.lowlo = freq2
-        self.rx1gain = gain1
-        self.rx2gain = gain2
-        self.tx1gain = gain3
-        self.tx2gain = gain4
         self.ip_address = ip_address
-        self.freq = freq
-        url = f"http://{self.ip_address}:5111/high_lo?freq={self.freq}"
+        
+        self._highlo = freq
+        self._lowlo = freq2
+        self._rx1gain = gain1
+        self._rx2gain = gain2
+        self._tx1gain = gain3
+        self._tx2gain = gain4
+        
+        self.set_high_lo(freq)
+        self.set_low_lo(freq2)
+        self.set_gain1(gain1)
+        self.set_gain2(gain2)
+        self.set_gain3(gain3)
+        self.set_gain4(gain4)
+    
+    def set_high_lo(self, freq):
+        self._highlo = freq
+        url = f"http://{self.ip_address}:5111/high_lo?freq={freq}"
         response = urllib.request.urlopen(url)
         url1 = response.read().decode('utf-8')
         print(url1)
-        """Set the low lo frequency."""
-        self.freq2 = freq2
-        ur2 = f"http://{self.ip_address}:5111/low_lo?freq={self.freq2}"
+    
+    def set_low_lo(self, freq):
+        self._lowlo = freq
+        ur2 = f"http://{self.ip_address}:5111/low_lo?freq={freq}"
         response = urllib.request.urlopen(ur2)
         url2 = response.read().decode('utf-8')
-        print(url2)
-        self.gain1 = gain1
-        ur3 = f"http://{self.ip_address}:5111/gain?trx=rx&chan=0&v={self.gain1}"
-        response = urllib.request.urlopen(ur3)
-        """Set RX 2 gain."""
-        self.gain2 = gain2
-        ur4 = f"http://{self.ip_address}:5111/gain?trx=rx&chan=1&v={self.gain2}"
+    
+    def set_gain1(self, gain):
+        self._rx1gain = gain
+        url = f"http://{self.ip_address}:5111/gain?trx=rx&chan=0&v={gain}"
+        response = urllib.request.urlopen(url)
+        url1 = response.read().decode('utf-8')
+        print(url1)
+       
+    def set_gain2(self, gain):
+        self._rx2gain = gain
+        ur4 = f"http://{self.ip_address}:5111/gain?trx=rx&chan=1&v={gain}"
         response = urllib.request.urlopen(ur4)
-        """Set TX 1 gain."""
-        self.gain3 = gain3
-        ur5 = f"http://{self.ip_address}:5111/gain?trx=tx&chan=0&v={self.gain3}"
+    
+    def set_gain3(self, gain):
+        self._tx1gain = gain
+        ur5 = f"http://{self.ip_address}:5111/gain?trx=tx&chan=0&v={gain}"
         response = urllib.request.urlopen(ur5)
-        """Set TX 2 gain."""
-        self.gain4 = gain4
-        ur6 = f"http://{self.ip_address}:5111/gain?trx=tx&chan=1&v={self.gain4}"
+    
+    def set_gain4(self, gain):
+        self._tx2gain = gain
+        ur6 = f"http://{self.ip_address}:5111/gain?trx=tx&chan=1&v={gain}"
         response = urllib.request.urlopen(ur6)
         url6 = response.read().decode('utf-8')
         print(url6)
+
+    def work(self, input_items, output_items):
+        return 0
