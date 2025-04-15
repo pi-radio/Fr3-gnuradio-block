@@ -55,4 +55,16 @@ parameters:
   default: 30.0
   setter: set_gain4  
 
+
+inputs: 
+  - domain: message
+    id: freq
+    optional: true
+  - domain: message
+    id: RX_gain
+    optional: true
+  - domain: message
+    id: TX_gain
+    optional: true
+    
 file_format: 1
