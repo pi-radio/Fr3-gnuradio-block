@@ -5,7 +5,7 @@ gnu radio block
 
 
 
-Installtion
+Installation
 
 unzip Fr3-gnuradio-block-main.zip
 
