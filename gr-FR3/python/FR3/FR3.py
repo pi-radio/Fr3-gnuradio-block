@@ -59,33 +59,32 @@ class FR3(gr.sync_block):
         self.set_gain4(gain4, self.TX_gainmes)
 
     def _handle_msg_freqmes(self, msg):
-
-        if isinstance(msg, pmt.int_t):
+        if pmt.is_real(msg):
             self.freqmes = pmt.to_python(msg)
             print(f"Received freqmes message: {self.freqmes}")
-            self.set_high_lo(self._highlo, self.freqmes) 
+            self.set_high_lo(self._highlo, self.freqmes)
         else:
             print("Error: freqmes message is not an integer.")
 
     def _handle_msg_RX_gainmes(self, msg):
-        
-        if isinstance(msg, pmt.real_t):
+        # Handle the received message for RX gain (float)
+        if pmt.is_real(msg):
             self.RXmes = pmt.to_python(msg)
             print(f"Received RX gain message: {self.RXmes}")
-            self.set_gain1(self._rx1gain, self.RXmes) 
-            self.set_gain2(self._rx2gain, self.RXmes) 
+            self.set_gain1(self._rx1gain, self.RXmes) # Update gain based on message
+            self.set_gain2(self._rx2gain, self.RXmes) # Update gain based on message
         else:
             print("Error: RX_gainmes message is not a float.")
 
     def _handle_msg_TX_gainmes(self, msg):
-        
-        if isinstance(msg, pmt.real_t):
+        # Handle the received message for TX gain (float)
+        if pmt.is_real(msg):
             self.TXmes = pmt.to_python(msg)
             print(f"Received TX gain message: {self.TXmes}")
-            self.set_gain3(self._tx1gain, self.TXmes) 
-            self.set_gain4(self._tx2gain, self.TXmes) 
+            self.set_gain3(self._tx1gain, self.TXmes) # Update gain based on message
+            self.set_gain4(self._tx2gain, self.TXmes) # Update gain based on message
         else:
-            print("Error: TX_gainmes message is not a float.")
+            print("Error: TX_gainmes message is not a float")
      
         
     
@@ -106,8 +105,8 @@ class FR3(gr.sync_block):
              print(url1)
     
     def set_low_lo(self, freq2):
-        self._lowlo = freq
-        ur2 = f"http://{self.ip_address}:5111/low_lo?freq={freq}"
+        self._lowlo = freq2
+        ur2 = f"http://{self.ip_address}:5111/low_lo?freq={freq2}"
         response = urllib.request.urlopen(ur2)
         url2 = response.read().decode('utf-8')
         print(url2)  
