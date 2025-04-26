@@ -127,7 +127,7 @@ class FR3(gr.sync_block):
       
         
     
-    def set_high_lo(self, freq, freqmes):
+    def set_high_lo(self, freq, freqmes= 0):
         self._highlo = freq
         self.mes_high_lo = freqmes
         if freqmes > 0:
@@ -143,7 +143,7 @@ class FR3(gr.sync_block):
              url1 = response.read().decode('utf-8')
              print(url1)
     
-    def set_low_lo(self, freq2, lowfreqmes):
+    def set_low_lo(self, freq2, lowfreqmes= 0):
         self._lowlo = freq2
         self.mes_low_lo = lowfreqmes
         if lowfreqmes > 0:
@@ -159,7 +159,7 @@ class FR3(gr.sync_block):
             url2 = response.read().decode('utf-8')
             print(url2)  
             
-    def set_gain1(self, gain1, RX_gainmes):
+    def set_gain1(self, gain1, RX_gainmes= 0):
         self._rx1gain = gain1
         self._RX_gainmes = RX_gainmes
         if RX_gainmes > 0:
@@ -174,9 +174,10 @@ class FR3(gr.sync_block):
             response = urllib.request.urlopen(url)
             url1 = response.read().decode('utf-8')
             print(url1)
+        
 
     
-    def set_gain2(self, gain2, RX1_gainmes):
+    def set_gain2(self, gain2, RX1_gainmes= 0):
         self._rx2gain = gain2
         self.RX1_gainmes = RX1_gainmes
         if RX1_gainmes > 0:
@@ -189,7 +190,7 @@ class FR3(gr.sync_block):
             response = urllib.request.urlopen(ur4)
             
     
-    def set_gain3(self, gain3, TX_gainmes):
+    def set_gain3(self, gain3, TX_gainmes= 0):
         self._txgain = gain3
         self.TX_gainmes = TX_gainmes
         if TX_gainmes > 0:
@@ -204,7 +205,7 @@ class FR3(gr.sync_block):
 
 
     
-    def set_gain4(self, gain4, TX1_gainmes):
+    def set_gain4(self, gain4, TX1_gainmes= 0):
         self._tx2gain = gain4
         self.TX1gainmes = TX1_gainmes
         if TX1_gainmes > 0:
