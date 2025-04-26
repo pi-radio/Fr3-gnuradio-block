@@ -67,6 +67,10 @@ inputs:
     optional: true
   - domain: message
     type: float
+    id: lowfreqmes
+    optional: true
+  - domain: message
+    type: float
     id: RX_gainmes
     optional: true
   - domain: message
