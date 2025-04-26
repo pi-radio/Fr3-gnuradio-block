@@ -54,17 +54,31 @@ parameters:
   dtype: float
   default: 30.0
   setter: set_gain4  
-
-
+- id: clock1
+  label: Clock
+  dtype: float
+  default: 2
+  setter: set_clock 
+  
 inputs: 
   - domain: message
-    id: freq
+    type: float
+    id: freqmes
     optional: true
   - domain: message
-    id: RX_gain
+    type: float
+    id: RX_gainmes
     optional: true
   - domain: message
-    id: TX_gain
+    type: float
+    id: TX_gainmes
     optional: true
-    
+  - domain: message
+    type: float
+    id: RX1_gainmes
+    optional: true
+  - domain: message
+    type: float
+    id: TX1_gainmes
+    optional: true
 file_format: 1
