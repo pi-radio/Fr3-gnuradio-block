@@ -147,6 +147,7 @@ class FR3(gr.sync_block):
         self._lowlo = freq2
         self.mes_low_lo = lowfreqmes
         if lowfreqmes > 0:
+            freq21 = lowfreqmes
             ur2 = f"http://{self.ip_address}:5111/low_lo?freq={freq21}"
             response = urllib.request.urlopen(ur2)
             url2 = response.read().decode('utf-8')
