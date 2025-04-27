@@ -181,7 +181,7 @@ class FR3(gr.sync_block):
         self._rx2gain = gain2
         self.RX1_gainmes = RX1_gainmes
         if RX1_gainmes > 0:
-            gainrx1 = RX_gainmes
+            gainrx1 = RX1_gainmes
             ur4 = f"http://{self.ip_address}:5111/gain?trx=rx&chan=1&v={gainrx1}"
             response = urllib.request.urlopen(ur4)
         else:
@@ -209,7 +209,7 @@ class FR3(gr.sync_block):
         self._tx2gain = gain4
         self.TX1gainmes = TX1_gainmes
         if TX1_gainmes > 0:
-            gaintx1 = TX_gainmes
+            gaintx1 = TX1_gainmes
             ur6 = f"http://{self.ip_address}:5111/gain?trx=tx&chan=1&v={gaintx1}"
             response = urllib.request.urlopen(ur6)
             url6 = response.read().decode('utf-8')
