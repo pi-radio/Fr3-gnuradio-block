@@ -174,6 +174,7 @@ class FR3(gr.sync_block):
             response = urllib.request.urlopen(url)
             url1 = response.read().decode('utf-8')
             print(url1)
+            
         
 
     
@@ -186,8 +187,9 @@ class FR3(gr.sync_block):
             response = urllib.request.urlopen(ur4)
         else:
             gainrx1 = gain2
-            ur4 = f"http://{self.ip_address}:5111/gain?trx=rx&chan=0&v={gainrx1}"
+            ur4 = f"http://{self.ip_address}:5111/gain?trx=rx&chan=1&v={gainrx1}"
             response = urllib.request.urlopen(ur4)
+            print(gainrx1)
             
     
     def set_gain3(self, gain3, TX_gainmes= 0):
@@ -199,8 +201,9 @@ class FR3(gr.sync_block):
             response = urllib.request.urlopen(ur5)
         else:
             gaintx = gain3
-            ur5 = f"http://{self.ip_address}:5111/gain?trx=rx&chan=0&v={gaintx}"
+            ur5 = f"http://{self.ip_address}:5111/gain?trx=tx&chan=0&v={gaintx}"
             response = urllib.request.urlopen(ur5)
+            print(gaintx)
             
 
 
@@ -216,7 +219,7 @@ class FR3(gr.sync_block):
             print(url6)
         else:
             gaintx1 = gain4
-            ur6 = f"http://{self.ip_address}:5111/gain?trx=rx&chan=0&v={gaintx1}"
+            ur6 = f"http://{self.ip_address}:5111/gain?trx=tx&chan=1&v={gaintx1}"
             response = urllib.request.urlopen(ur6)
             url6 = response.read().decode('utf-8')
             print(url6)
