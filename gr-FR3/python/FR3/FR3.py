@@ -85,7 +85,7 @@ class FR3(gr.sync_block):
             print(f"Lowlo freqency: {self.lowfreqmes}")
             self.set_low_lo(self._lowlo, self.lowfreqmes)
         else:
-            print("Error: lowlo freqency message is not between 4e8-1.8e9.")
+            print("Error: lowlo freqency is not between 4e8-1.8e9.")
 
 
     def _handle_msg_RX_gainmes(self, msg):
@@ -95,7 +95,7 @@ class FR3(gr.sync_block):
             print(f"RX gain: {self.RXmes}")
             self.set_gain1(self._rx1gain, self.RXmes) 
         else:
-            print("Error: RX gain message is not between 1-60.")
+            print("Error: RX gain is not between 1-60.")
         
     def _handle_msg_RX1_gainmes(self, msg):
 
@@ -104,7 +104,7 @@ class FR3(gr.sync_block):
             print(f"RX1 gain: {self.RX1mes}")
             self.set_gain2(self._rx2gain, self.RX1mes) 
         else:
-            print("Error: RX1 gain message is not 1-60.")
+            print("Error: RX1 gain is not 1-60.")
 
 
     def _handle_msg_TX_gainmes(self, msg):
@@ -114,7 +114,7 @@ class FR3(gr.sync_block):
             print(f"TX gain: {self.TXmes}")
             self.set_gain3(self._tx1gain, self.TXmes)
         else:
-            print("Error: TX gain message is not 1-60")
+            print("Error: TX gain is not 1-60")
      
     def _handle_msg_TX1_gainmes(self, msg):
 
@@ -123,7 +123,7 @@ class FR3(gr.sync_block):
             print(f"TX1 gain: {self.TX1mes}")
             self.set_gain4(self._tx2gain, self.TX1mes) 
         else:
-            print("Error: TX1 gain message is not 1-60")
+            print("Error: TX1 gain is not 1-60")
       
         
     
