@@ -74,56 +74,56 @@ class FR3(gr.sync_block):
     def _handle_msg_freqmes(self, msg):
         if pmt.is_real(msg):
             self.freqmes = pmt.to_python(msg)
-            print(f"Received freqmes message: {self.freqmes}")
+            print(f"Highlo freqency: {self.freqmes}")
             self.set_high_lo(self._highlo, self.freqmes)
         else:
-            print("Error: freqmes message is not an number.")
+            print("Error: Highlo freqency is not between 6e9-22e9.")
             
     def _handle_msg_lowfreqmes(self, msg):
         if pmt.is_real(msg):
             self.lowfreqmes = pmt.to_python(msg)
-            print(f"Received lowfreqmes message: {self.lowfreqmes}")
+            print(f"Lowlo freqency: {self.lowfreqmes}")
             self.set_low_lo(self._lowlo, self.lowfreqmes)
         else:
-            print("Error: lowfreqmes message is not an number.")
+            print("Error: lowlo freqency message is not between 4e8-1.8e9.")
 
 
     def _handle_msg_RX_gainmes(self, msg):
 
         if pmt.is_real(msg):
             self.RXmes = pmt.to_python(msg)
-            print(f"Received RX gain message: {self.RXmes}")
+            print(f"RX gain: {self.RXmes}")
             self.set_gain1(self._rx1gain, self.RXmes) 
         else:
-            print("Error: RX_gainmes message is not a float.")
+            print("Error: RX gain message is not between 1-60.")
         
     def _handle_msg_RX1_gainmes(self, msg):
 
         if pmt.is_real(msg):
             self.RX1mes = pmt.to_python(msg)
-            print(f"Received RX gain message: {self.RX1mes}")
+            print(f"RX1 gain: {self.RX1mes}")
             self.set_gain2(self._rx2gain, self.RX1mes) 
         else:
-            print("Error: RX1_gainmes message is not a float.")
+            print("Error: RX1 gain message is not 1-60.")
 
 
     def _handle_msg_TX_gainmes(self, msg):
 
         if pmt.is_real(msg):
             self.TXmes = pmt.to_python(msg)
-            print(f"Received TX gain message: {self.TXmes}")
+            print(f"TX gain: {self.TXmes}")
             self.set_gain3(self._tx1gain, self.TXmes)
         else:
-            print("Error: TX_gainmes message is not a float")
+            print("Error: TX gain message is not 1-60")
      
     def _handle_msg_TX1_gainmes(self, msg):
 
         if pmt.is_real(msg):
             self.TX1mes = pmt.to_python(msg)
-            print(f"Received TX gain message: {self.TX1mes}")
+            print(f"TX1 gain: {self.TX1mes}")
             self.set_gain4(self._tx2gain, self.TX1mes) 
         else:
-            print("Error: TX1_gainmes message is not a float")
+            print("Error: TX1 gain message is not 1-60")
       
         
     
