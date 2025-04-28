@@ -10,6 +10,8 @@ unzip Fr3-gnuradio-block-main.zip
 
 cd Fr3-gnuradio-block-main/
 
+cd gr-FR3
+
 mkdir build
 
 cd build
