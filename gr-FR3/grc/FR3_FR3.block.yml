@@ -53,12 +53,7 @@ parameters:
   label: TX Gain 2
   dtype: float
   default: 30.0
-  setter: set_gain4  
-- id: clock1
-  label: Clock
-  dtype: float
-  default: 2
-  setter: set_clock 
+  setter: set_gain4
   
 inputs: 
   - domain: message
