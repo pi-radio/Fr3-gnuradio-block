@@ -39,12 +39,12 @@ class FR3(gr.sync_block):
         self.TX1_gainmes = 0
 
 
-        freqmes_port_id = pmt.intern("freqmes")
-        lowfreqmes_port_id = pmt.intern("lowfreqmes")
-        rx_gainmes_port_id = pmt.intern("RX_gainmes")
-        rx1_gainmes_port_id = pmt.intern("RX1_gainmes")
-        tx_gainmes_port_id = pmt.intern("TX_gainmes")
-        tx1_gainmes_port_id = pmt.intern("TX1_gainmes")
+        freqmes_port_id = pmt.intern("RF_freq")
+        lowfreqmes_port_id = pmt.intern("IF_freq")
+        rx_gainmes_port_id = pmt.intern("RX1_gain")
+        rx1_gainmes_port_id = pmt.intern("RX2_gain")
+        tx_gainmes_port_id = pmt.intern("TX1_gain")
+        tx1_gainmes_port_id = pmt.intern("TX2_gain")
         
 
         self.message_port_register_in(freqmes_port_id)
