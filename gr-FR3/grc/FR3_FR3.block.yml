@@ -13,7 +13,7 @@ templates:
   - set_gain3(${gain3})
   - set_gain4(${gain4})
 
-# Define parameters and their callbacks
+
 parameters:
 - id: ip_address
   label: IP Address
@@ -21,13 +21,13 @@ parameters:
   default: "0.0.0.0"
 
 - id: freq
-  label: High LO Frequency
+  label: RF Frequency
   dtype: float
   default: 10000000000.0
   setter: set_freq  
 
 - id: freq2
-  label: Low LO Frequency
+  label: IF Frequency
   dtype: float
   default: 1600000000.0
   setter: set_freq2  
@@ -58,26 +58,33 @@ parameters:
 inputs: 
   - domain: message
     type: float
-    id: freqmes
+    id: RF_freq
     optional: true
   - domain: message
     type: float
-    id: lowfreqmes
+    id: IF_freq
     optional: true
   - domain: message
     type: float
-    id: RX_gainmes
+    id: RX1_gain
     optional: true
   - domain: message
     type: float
-    id: TX_gainmes
+    id: TX1_gain
     optional: true
   - domain: message
     type: float
-    id: RX1_gainmes
+    id: RX2_gain
     optional: true
   - domain: message
     type: float
-    id: TX1_gainmes
+    id: TX2_gain
     optional: true
+  #- domain: message
+    #type: float
+    #id: ResetLmx
+  
+
+
+    
 file_format: 1
