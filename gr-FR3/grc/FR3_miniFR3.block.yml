@@ -6,34 +6,54 @@ templates:
   imports: from gnuradio import FR3
   make: FR3.miniFR3()
 
-#  Make one 'parameters' list entry for every parameter you want settable from the GUI.
-#     Keys include:
-#     * id (makes the value accessible as keyname, e.g. in the make entry)
-#     * label (label shown in the GUI)
-#     * dtype (e.g. int, float, complex, byte, short, xxx_vector, ...)
-#     * default
-parameters:
-- id: parametername_replace_me
-  label: FIX ME
-  dtype: string
-  default: You need to fill in your grc/FR3_miniFR3.block.yaml
-#- id: ...
-#  label: ...
-#  dtype: ...
 
-#  Make one 'inputs' list entry per input and one 'outputs' list entry per output.
-#  Keys include:
-#      * label (an identifier for the GUI)
-#      * domain (optional - stream or message. Default is stream)
-#      * dtype (e.g. int, float, complex, byte, short, xxx_vector, ...)
-#      * vlen (optional - data stream vector length. Default is 1)
-#      * optional (optional - set to 1 for optional inputs. Default is 0)
-inputs:
-#- label: ...
-#  domain: ...
-#  dtype: ...
-#  vlen: ...
-#  optional: ...
+parameters:
+#- id: serial
+# label: serial
+#  dtype: string
+#  default: ""
+
+- id: freq
+  label: RF Frequency
+  dtype: float
+  default: 10000000000.0
+  setter: set_freq  
+
+- id: freq2
+  label: IF Frequency
+  dtype: float
+  default: 1600000000.0
+  setter: set_freq2  
+
+- id: gain1
+  label: RX Gain 1
+  dtype: float
+  default: 30.0
+  setter: set_gain1  
+- id: gain2
+  label: TX Gain 2
+  dtype: float
+  default: 30.0
+  setter: set_gain2  
+
+
+inputs: 
+  - domain: message
+    type: float
+    id: RF_freq
+    optional: true
+  - domain: message
+    type: float
+    id: IF_freq
+    optional: true
+  - domain: message
+    type: float
+    id: RX1_gain
+    optional: true
+  - domain: message
+    type: float
+    id: TX1_gain
+    optional: true
 
 outputs:
 #- label: ...
@@ -42,6 +62,5 @@ outputs:
 #  vlen: ...
 #  optional: ...
 
-#  'file_format' specifies the version of the GRC yml format used in the file
-#  and should usually not be changed.
+
 file_format: 1
