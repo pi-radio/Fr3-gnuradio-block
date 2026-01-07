@@ -9,4 +9,5 @@
 ########################################################################
 # Install public header files
 ########################################################################
-install(FILES api.h DESTINATION include/gnuradio/FR3)
+install(FILES api.h
+    miniFR3.h DESTINATION include/gnuradio/FR3)

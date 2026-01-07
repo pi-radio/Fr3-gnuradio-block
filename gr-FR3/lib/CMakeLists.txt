@@ -11,7 +11,8 @@
 ########################################################################
 include(GrPlatform) #define LIB_SUFFIX
 
-list(APPEND FR3_sources)
+list(APPEND FR3_sources
+    miniFR3_impl.cc)
 
 set(FR3_sources
     "${FR3_sources}"

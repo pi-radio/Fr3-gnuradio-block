@@ -24,7 +24,8 @@ include(GrPybind)
 # Python Bindings
 ########################################################################
 
-list(APPEND FR3_python_files python_bindings.cc)
+list(APPEND FR3_python_files
+    miniFR3_python.cc python_bindings.cc)
 
 gr_pybind_make_oot(FR3 ../../.. gr::FR3 "${FR3_python_files}")
 
