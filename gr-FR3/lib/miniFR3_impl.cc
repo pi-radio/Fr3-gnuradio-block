@@ -10,7 +10,10 @@
 
 namespace gr {
   namespace FR3 {
-
+    void my_block_impl::set_frequency(float set_freq)
+    void my_block_impl::set_frequency2(float set_freq2)
+    void my_block_impl::set_gain1(float set_gain1)
+      void my_block_impl::set_gain2(float set_gain2)
     #pragma message("set the following appropriately and remove this warning")
     using input_type = float;
     #pragma message("set the following appropriately and remove this warning")

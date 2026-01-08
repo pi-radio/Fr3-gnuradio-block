@@ -22,7 +22,10 @@ namespace gr {
       miniFR3_impl();
       ~miniFR3_impl();
 
-      // Where all the action really happens
+      virtual void set_frequency(float set_freq) = 0; // RF
+      virtual void set_frequency(float set_freq2) = 0; // IF
+      virtual void set_frequency(float set_gain1) = 0; // RX
+      virtual void set_frequency(float set_gain2) = 0; // TX
       int work(
               int noutput_items,
               gr_vector_const_void_star &input_items,
