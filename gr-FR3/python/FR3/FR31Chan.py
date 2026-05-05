@@ -45,11 +45,10 @@ class FR31Chan(gr.sync_block):
         #self.set_msg_handler(TXMES_port_id, self._handle_msg_TXgain)
 
 
-        #self.set_RF(_RX, self.RFMES)
-        #self.set_IF(_IF, self.IFMES)
-        #self.set_RX(_RX, self.RXMES)
-        #self.set_TX(_TX, self.TXMES)
-
+        self.set_RF(self._RX, self.RFMES)
+        self.set_IF(self._IF, self.IFMES)
+        self.set_RX(self._RX, self.RXMES)
+        self.set_TX(self._TX, self.TXMES)
 
 
         
@@ -90,20 +89,20 @@ class FR31Chan(gr.sync_block):
 
       
         
-        def set_RF(self, _RF, RFMES= 0):
-            print("pigs")
+   def set_RF(self, _RF, RFMES= 0):
+       return f"pigs"
 
 
             
-        def set_IF(self, _IF, IFMES= 0):
-            print("Moon")
+   def set_IF(self, _IF, IFMES= 0):
+       return f"Moon"
 
 
             
-        def set_RX(self, _RX, RXMES= 0):
-            print("echos")
+   def set_RX(self, _RX, RXMES= 0):
+       return f"echos"
 
 
             
-        def set_TX(self, _TX, TXMES= 0):
-            print("brick")
+   def set_TX(self, _TX, TXMES= 0):
+       return f"brick"
