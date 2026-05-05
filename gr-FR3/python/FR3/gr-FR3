@@ -1,0 +1,4 @@
+import FR31chan
+
+test = FR31Chan.set_RX(1, 1)
+print(test)

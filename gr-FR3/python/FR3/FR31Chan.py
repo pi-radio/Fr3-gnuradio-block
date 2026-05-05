@@ -5,7 +5,7 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
-
+import pmt
 import serial
 import numpy
 from gnuradio import gr
@@ -29,26 +29,26 @@ class FR31Chan(gr.sync_block):
         self.TXMES = 0
 
         
-        RFMES_port_id = pmt.intern("RF")
-        IFMES_port_id = pmt.intern("IF")
-        RXMES_port_id = pmt.intern("RX")
-        TXMES_port_id = pmt.intern("TX")
+        #RFMES_port_id = pmt.intern("RF")
+        #IFMES_port_id = pmt.intern("IF")
+        #RXMES_port_id = pmt.intern("RX")
+        #TXMES_port_id = pmt.intern("TX")
         
 
-        self.message_port_register_in(RFMES_port_id)
-        self.message_port_register_in(IFMES_port_id)
-        self.message_port_register_in(RXMES_port_id)
-        self.message_port_register_in(TXMES_port_id)
-        self.set_msg_handler(RFMES_port_id, self._handle_msg_RF)
-        self.set_msg_handler(IFMES_port_id, self._handle_msg_IF)
-        self.set_msg_handler(RXMES_port_id, self._handle_msg_RXgain)
-        self.set_msg_handler(TXMES_port_id, self._handle_msg_TXgain)
+        #self.message_port_register_in(RFMES_port_id)
+        #self.message_port_register_in(IFMES_port_id)
+        #self.message_port_register_in(RXMES_port_id)
+        #self.message_port_register_in(TXMES_port_id)
+        #self.set_msg_handler(RFMES_port_id, self._handle_msg_RF)
+        #self.set_msg_handler(IFMES_port_id, self._handle_msg_IF)
+        #self.set_msg_handler(RXMES_port_id, self._handle_msg_RXgain)
+        #self.set_msg_handler(TXMES_port_id, self._handle_msg_TXgain)
 
 
-        self.set_RF(_RX, self.RFMES)
-        self.set_IF(_IF, self.IFMES)
-        self.set_RX(_RX, self.RXMES)
-        self.set_TX(_TX, self.TXMES)
+        #self.set_RF(_RX, self.RFMES)
+        #self.set_IF(_IF, self.IFMES)
+        #self.set_RX(_RX, self.RXMES)
+        #self.set_TX(_TX, self.TXMES)
 
 
 
@@ -59,7 +59,7 @@ class FR31Chan(gr.sync_block):
                 print(f"freqency: {self.RFMES}")
                 self.set_RF(self._RF, self.RFMES)
             else:
-                print("Error: freqency is not between 6e9-22e9.")
+                print("Error: RF freqency is not between 6e9-22e9.")
                
         def _handle_msg_IF(self, msg):
             if pmt.is_real(msg):
@@ -84,7 +84,7 @@ class FR31Chan(gr.sync_block):
                 print(f"TX gain: {self.TXMES}")
                 self.set_TX(self._TX, self.TXMES) 
             else:
-                print("Error: TX gain is not 1-60.")
+                print("Error: TX gain is not between 1-60.")
 
 
 
