@@ -20,7 +20,8 @@ add_subdirectory(bindings)
 # Install python sources
 ########################################################################
 gr_python_install(FILES __init__.py
-    FR3.py DESTINATION ${GR_PYTHON_DIR}/gnuradio/FR3)
+    FR3.py
+    FR31Chan.py DESTINATION ${GR_PYTHON_DIR}/gnuradio/FR3)
 
 ########################################################################
 # Handle the unit tests
