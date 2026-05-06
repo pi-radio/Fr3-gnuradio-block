@@ -12,7 +12,7 @@ from gnuradio import gr
 
 class FR31Chan(gr.sync_block):
 
-   def __init__(self, freqRF, freqIF, RXgain, TXgain):
+   def __init__(self, freqRF, freqIF, RXgain, TXgain, serialport):
 
         gr.sync_block.__init__(self,
             name="FR31Chan",
@@ -27,7 +27,8 @@ class FR31Chan(gr.sync_block):
         self.IFMES = 0
         self.RXMES = 0
         self.TXMES = 0
-
+        self.serial = serialport
+        #self.serialport = serial.serial(serial)
         
         #RFMES_port_id = pmt.intern("RF")
         #IFMES_port_id = pmt.intern("IF")
@@ -88,21 +89,31 @@ class FR31Chan(gr.sync_block):
 
 
       
-        
+   # serial setters
+   
    def set_RF(self, _RF, RFMES= 0):
+      self.RFSET = _RF
+      self.RFmess = RFMES
+      
        return f"pigs"
 
 
             
    def set_IF(self, _IF, IFMES= 0):
-       return f"Moon"
+      self.IFSET = _IF
+      self.IFMESS = IFMES
+      return f"Moon"
 
 
             
    def set_RX(self, _RX, RXMES= 0):
-       return f"echos"
+      self.RXSET = _RX
+      self.RXMESS = RXMES
+      return f"echos"
 
 
             
    def set_TX(self, _TX, TXMES= 0):
-       return f"brick"
+      self.TXSET = _TX
+      self.TXMESS = TXMES
+      return f"brick"
