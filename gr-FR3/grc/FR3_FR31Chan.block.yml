@@ -1,21 +1,17 @@
 id: FR3_FR31Chan
 label: FR31Chan(Not functioning)
-category: '[FR3]'
+category: '[Pi-Radio]'
 
 templates:
   imports: from gnuradio import FR3
-  make: FR3.FR31Chan()
-
-templates:
-  imports: from gnuradio import FR3
-  make: FR3.FR31Chan(${freqRF}, ${freqIF}, ${RXgain}, ${TXgain}, ${serial})
+  make: FR3.FR31Chan(${RFfreq}, ${IFfreq}, ${RXgain}, ${TXgain}, ${serial})
   callbacks:
-  - set_RFfreq(${RXfreq})
+  - set_RFfreq(${RFfreq})
   - set_IFfreq(${IFfreq})
   - set_RXgain(${RXgain})
   - set_TXgain(${TXgain})
-  - set_serials(${serial})
   
+parameters:
 - id: RFfreq
   label: RF Frequency
   dtype: float
@@ -38,12 +34,12 @@ templates:
   dtype: float
   default: 30.0
   setter: set_TXgain
-  parameters:
+ 
 - id: serial
   label: Serial port
   dtype: string
   default: '/dev/'
-  setter:set_serials
+  
 
 
   

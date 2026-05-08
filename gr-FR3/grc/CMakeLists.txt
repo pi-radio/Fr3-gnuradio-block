@@ -8,5 +8,4 @@
 
 install(FILES
     FR3_FR3.block.yml
-    FR3_miniFR3.block.yml
     FR3_FR31Chan.block.yml DESTINATION share/gnuradio/grc/blocks)
