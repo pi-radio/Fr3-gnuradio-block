@@ -1,1 +1,15 @@
+How To build your own radar 
+Basics
+So you want to build your own radar?
+*principles
+Radars work by reflecting radio wave off of conductive objects   
+*types
+There are multiple types of radars that are used for diffrent purposes countinuos wave(CW), freqency modulated continuos wave(FMCW), freqency shift keying radar(FSK), Orthogonal freqency division multiplexing radar (OFDM),pulsed radar, and pulse doppler.
+Each of them have there own uses and limitations. Now your wondering How do radar measure distance ,velocity and Angle of Arrival, measuring velocity is quite easy to do using the principle of doppler shifting i.e lets use an ambulance in this example when it is driving towards you you hear the pitch get higher but when it drives away you hear the pitch get lower. We use this principle all the time with radars, astronomy, medical field, and satilites.[insert image of doppler shift car radar].Measuring distance there is multiple techniques you send a pulse and time how long it takes to come back or you could use a FMCW radar which is a continuos wave radar that the freqency is modulated but it is limited to small distances, and Using phase measurements you can measure small movements. 
+*Math / signal processing 
+
+*build your own Horn antenna 10.5Ghz
+
+
+
 
