@@ -22,4 +22,5 @@ except ModuleNotFoundError:
 # import any pure python here
 from .FR3 import FR3
 from .FR31Chan import FR31Chan
+from .Octolo import Octolo
 #

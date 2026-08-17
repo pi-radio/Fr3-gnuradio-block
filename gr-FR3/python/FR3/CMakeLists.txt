@@ -21,7 +21,8 @@ add_subdirectory(bindings)
 ########################################################################
 gr_python_install(FILES __init__.py
     FR3.py
-    FR31Chan.py DESTINATION ${GR_PYTHON_DIR}/gnuradio/FR3)
+    FR31Chan.py
+    Octolo.py DESTINATION ${GR_PYTHON_DIR}/gnuradio/FR3)
 
 ########################################################################
 # Handle the unit tests

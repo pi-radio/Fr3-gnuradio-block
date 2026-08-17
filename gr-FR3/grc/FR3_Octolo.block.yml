@@ -1,0 +1,40 @@
+id: FR3_Octolo
+label: Octolo
+category: '[FR3]'
+
+templates:
+  imports: from gnuradio import FR3
+  make: FR3.Octolo(${freqlo}, ${freqlodrive}, ${serialports})
+  callbacks:
+  - set_lo(${freqlo})
+  - set_lodrive(${freqlodrive})
+  
+  
+parameters:
+- id: freqlo
+  label: Lo freqency (6.0-22.6)
+  dtype: float
+  default: 10.0
+  setter: set_lo
+
+- id: freqlodrive
+  label: Lo drive power (1-7)
+  dtype: float
+  default: 5
+  setter: set_lodrive
+
+- id: serialports
+  label: Serial port
+  dtype: string
+  default: '/dev/'
+inputs: 
+- domain: message
+  type: float
+  id: freq_lo
+  optional: True
+- domain: message
+  type: float
+  id: freq_lodrive
+  optional: True
+
+file_format: 1
