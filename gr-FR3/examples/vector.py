@@ -14,6 +14,4 @@ for y in range(height):
             i = (x / (width - 1)) * 2.0 - 1.0
             q = -((y / (height - 1)) * 2.0 - 1.0) 
             complex_points.append(complex(i, q))
-
-print("Generated Vector for GNU Radio:")
 print(repr(complex_points))
