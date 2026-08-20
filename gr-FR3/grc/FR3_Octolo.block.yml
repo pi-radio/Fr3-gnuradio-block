@@ -1,6 +1,6 @@
 id: FR3_Octolo
 label: Octolo
-category: '[FR3]'
+category: '[Pi-Radio]'
 
 templates:
   imports: from gnuradio import FR3
