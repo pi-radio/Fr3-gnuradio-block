@@ -46,7 +46,7 @@ class ConstellationDemo(gr.top_block):
     sample_data = complex_points
     self.src = blocks.vector_source_c(sample_data, True)
     self.throttle = blocks.throttle(gr.sizeof_gr_complex, 32000)
-    self.const_sink = qtgui.const_sink_c(100000000, 'Vector Constellation', 1)
+    self.const_sink = qtgui.const_sink_c(100000, 'Vector Constellation', 1)
     self.const_sink.set_update_time(0.1)
     self.connect(self.src, self.throttle, self.const_sink)
 
