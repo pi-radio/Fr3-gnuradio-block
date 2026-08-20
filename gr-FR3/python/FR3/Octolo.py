@@ -25,8 +25,6 @@ class Octolo(gr.basic_block):
         self.lodrivemes = 0
         self.serials = serialports
         self.ser = serial.Serial(port=f"{self.serials}", baudrate=115200, timeout=1)
-
-        #self.serialport = serial.serial(serials)
         
         lomes_port_id = pmt.intern("freq_lo")
         lodrivemes_port_id = pmt.intern("freq_lodrive")
